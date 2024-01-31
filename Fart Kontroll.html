@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fartskontroll</title>
+    <script>
+        
+        function registrerFart() {
+          
+            var fart = parseFloat(document.getElementById("fartInput").value);
+            
+            
+            var avvik = fart - 80;
+            
+            var meldingTekst = "Melding: ";
+            if (fart <= 80) {
+                meldingTekst += "Lovlig fart";
+            } else if (fart <= 90) {
+                meldingTekst += "1500 kr i bot";
+            } else {
+                meldingTekst += "3000 kr i bot";
+            }
+            document.getElementById("txtMelding").value = meldingTekst;
+            
+            document.getElementById("txtAvvik").value = "Avvik: " + avvik + " km/time";
+            
+            document.getElementById("txtAvvikStorrelse").value = "Avvik størrelse: " + Math.abs(avvik) + " km/time";
+
+
+            
+        }
+    </script>
+</head>
+<body>
+    <h2>Fartskontroll</h2>
+    <label for="fartInput">Fart (km/time): </label>
+    <input type="text" id="fartInput">
+    <button onclick="registrerFart()">Registrer</button>
+    <br>
+    <label for="txtMelding">Melding: </label>
+    <input type="text" id="txtMelding" readonly>
+    <br>
+    <label for="txtAvvik">Avvik: </label>
+    <input type="text" id="txtAvvik" readonly>
+    <br>
+    <label for="txtAvvikStorrelse">Avvik størrelse: </label>
+    <input type="text" id="txtAvvikStorrelse" readonly>
+</body>
+</html>

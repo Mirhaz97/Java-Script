@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fartskontroll</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+           
+            var fart1 = 75; 
+            var fart2 = 85; 
+    
+            var ledetekst = "Gjennomsnittsfarten er ";
+          
+            var gjennomsnittsfart = (fart1 + fart2) / 2;
+            alert(ledetekst + gjennomsnittsfart);
+
+           
+            var fartsgrense = 80;
+
+            if (fart1 <= 80) {
+                alert("Lovlig fart");
+            } else if (fart1 <= 90) {
+                alert("1500 kr i bot");
+            } else {
+                alert("3000 kr i bot");
+            }
+            
+            var erFart1Lovlig = fart1 <= fartsgrense;
+            var erFart2Lovlig = fart2 <= fartsgrense;
+
+            var kunEnLovlig = (erFart1Lovlig || erFart2Lovlig) && !(erFart1Lovlig && erFart2Lovlig);
+
+            alert("Én av hastighetene er lovlige: " + kunEnLovlig);
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
